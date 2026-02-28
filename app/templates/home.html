@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="p-4 bg-white rounded shadow-sm">
+  <h2>Mini Shop ✅</h2>
+  <p class="text-muted mb-3">Accueil (Phase 2 : Auth)</p>
+
+  <div class="d-flex gap-2 flex-wrap">
+    <a class="btn btn-primary" href="/products">Products (plus tard)</a>
+    <a class="btn btn-outline-secondary" href="/cart">Cart (plus tard)</a>
+    <a class="btn btn-outline-secondary" href="/orders">Orders (plus tard)</a>
+
+    {% if current_user.is_authenticated %}
+      <a class="btn btn-success" href="/profile">Profile</a>
+      {% if current_user.role == "admin" %}
+        <a class="btn btn-info" href="/admin-test">Admin</a>
+      {% endif %}
+    {% else %}
+      <a class="btn btn-outline-dark" href="/register">Register</a>
+      <a class="btn btn-dark" href="/login">Login</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

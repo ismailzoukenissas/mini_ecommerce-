@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="card shadow-sm border-0">
+  <div class="card-body">
+    <h3 class="mb-2">Profile ✅</h3>
+    <p class="mb-0">Email : <strong>{{ current_user.email }}</strong></p>
+    <p class="mb-0">Rôle : <span class="badge bg-secondary">{{ current_user.role }}</span></p>
+  </div>
+</div>
+{% endblock %}

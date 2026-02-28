@@ -4,6 +4,8 @@ from flask_migrate import Migrate
 
 db = SQLAlchemy()
 login_manager = LoginManager()
-login_manager.login_view = "main.login"
+
+# où rediriger si user non connecté
+login_manager.login_view = "auth.login"
 
 migrate = Migrate()
