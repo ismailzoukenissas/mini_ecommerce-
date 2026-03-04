@@ -16,14 +16,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="/">Mini Shop</a>
-
+    
     <div class="ms-auto d-flex align-items-center gap-2">
+      <a class="btn btn-outline-light btn-sm" href="/products">Products</a>
+      <a class="btn btn-outline-light btn-sm" href="/cart">
+  Cart {% if cart_count %}<span class="badge bg-warning text-dark">{{ cart_count }}</span>{% endif %}
+</a>
       {% if current_user.is_authenticated %}
         <span class="text-white-50 small">
           {{ current_user.email }} ({{ current_user.role }})
         </span>
         {% if current_user.role == "admin" %}
   <a class="btn btn-outline-info btn-sm" href="/admin-test">Admin</a>
+  
 {% endif %}
         <a class="btn btn-outline-light btn-sm" href="/profile">Profile</a>
 

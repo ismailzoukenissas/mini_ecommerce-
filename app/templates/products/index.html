@@ -1,0 +1,30 @@
+{% extends "layouts/base.html" %}
+{% block title %}Produits{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3 class="m-0">Catalogue</h3>
+  {% if current_user.is_authenticated and current_user.role == "admin" %}
+    <a class="btn btn-info" href="/admin/products/new">+ Ajouter produit</a>
+  {% endif %}
+</div>
+
+<div class="row g-3">
+  {% for p in products %}
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <p class="text-muted mb-2">{{ p.price }} MAD</p>
+          <a class="btn btn-sm btn-primary" href="/products/{{ p.id }}">Voir</a>
+          <form method="post" action="/cart/add/{{ p.id }}" class="d-inline">
+  <button class="btn btn-sm btn-success" type="submit">Add to cart</button>
+</form>
+
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <p>Aucun produit pour le moment.</p>
+  {% endfor %}
+</div>
+{% endblock %}

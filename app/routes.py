@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+"""from flask import Blueprint, request, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from .extensions import db
 from .models import User
@@ -49,4 +49,4 @@ def logout():
 @bp.get("/me")
 @login_required
 def me():
-    return jsonify({"id": current_user.id, "email": current_user.email, "role": current_user.role})
+    return jsonify({"id": current_user.id, "email": current_user.email, "role": current_user.role})"""

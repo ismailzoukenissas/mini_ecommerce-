@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h3>{{ product.name }}</h3>
+    <p class="text-muted">{{ product.price }} MAD</p>
+    <p>{{ product.description or "Pas de description." }}</p>
+    <p>Stock: <strong>{{ product.stock }}</strong></p>
+    <form method="post" action="/cart/add/{{ product.id }}" class="mb-2">
+  <button class="btn btn-success" type="submit">Add to cart</button>
+</form>
+    <a class="btn btn-outline-secondary" href="/products">← Retour</a>
+  </div>
+</div>
+{% endblock %}
